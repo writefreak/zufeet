@@ -4,16 +4,17 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { TextAlignJustify } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/products", label: "Shop" },
-  { href: "/preorder", label: "Pre-Order" },
   { href: "/about", label: "About" },
+  { href: "/reviews", label: "Reviews" },
+  { href: "/products", label: "Shop" },
 ];
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
@@ -23,21 +24,29 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => setMenuOpen(false), [pathname]);
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-bg/95 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
+          ? "bg-bg/95 md:backdrop-blur-none backdrop-blur-md md:bg-[#FDFBFB]"
+          : "",
       )}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="font-display text-2xl font-semibold text-text tracking-wide">
-          Zu<span className="text-brand">feet</span>
+        <Link
+          href="/"
+          className="font-display text-2xl font-semibold text-text tracking-wide"
+        >
+          <img
+            src="/zufeetmain.png"
+            alt=""
+            className="h-7 w-full hidden md:block"
+          />
+          <img src="/zufeetwhite.png" alt="" className="h-7 w-full md:hidden" />
         </Link>
 
         {/* Desktop links */}
@@ -50,7 +59,7 @@ export default function Navbar() {
                   "font-body text-sm tracking-wider uppercase transition-colors duration-200",
                   pathname === href
                     ? "text-brand"
-                    : "text-text-muted hover:text-text"
+                    : "text-text-muted hover:text-text",
                 )}
               >
                 {label}
@@ -62,7 +71,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <Link
           href="/preorder"
-          className="hidden md:inline-flex items-center gap-2 bg-brand hover:bg-brand-light text-brand-fg text-sm font-medium px-5 py-2 transition-colors duration-200"
+          className="hidden md:inline-flex rounded-xl items-center gap-2 bg-brand hover:bg-brand-light text-brand-fg text-sm font-medium px-5 py-2 transition-colors duration-200"
         >
           Pre-Order Now
         </Link>
@@ -70,55 +79,61 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
-          onClick={() => setOpen(!open)}
+          onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
-          aria-expanded={open}
+          aria-expanded={menuOpen}
         >
-          <span
-            className={cn(
-              "w-6 h-px bg-text transition-all duration-300",
-              open && "rotate-45 translate-y-[4px]"
-            )}
-          />
-          <span
-            className={cn(
-              "w-6 h-px bg-text transition-all duration-300",
-              open && "-rotate-45 -translate-y-[4px]"
-            )}
-          />
+          <TextAlignJustify color="white" />
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile full-screen overlay */}
       <div
         className={cn(
-          "md:hidden overflow-hidden transition-all duration-300 bg-bg-surface border-b border-border",
-          open ? "max-h-72 opacity-100" : "max-h-0 opacity-0"
+          "md:hidden fixed inset-0 z-60 text-text bg-[#F5ECED] font-display flex flex-col items-center justify-center gap-8 transition-all duration-300",
+          menuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none",
         )}
       >
-        <ul className="flex flex-col px-6 py-4 gap-4">
-          {NAV_LINKS.map(({ href, label }) => (
-            <li key={href}>
-              <Link
-                href={href}
-                className={cn(
-                  "block font-body text-sm tracking-wider uppercase py-1 transition-colors",
-                  pathname === href ? "text-brand" : "text-text-muted"
-                )}
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
-          <li>
-            <Link
-              href="/preorder"
-              className="inline-flex bg-brand text-brand-fg text-sm font-medium px-5 py-2 mt-1"
-            >
-              Pre-Order Now
-            </Link>
-          </li>
-        </ul>
+        {/* Close button */}
+        <button
+          onClick={() => setMenuOpen(false)}
+          className="absolute top-5 right-7 text-text text-2xl transition-colors"
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
+
+        {NAV_LINKS.map((link, i) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            onClick={() => setMenuOpen(false)}
+            className={cn(
+              "text-2xl font-nunito font-semibold text-text transition-all text-center duration-300",
+              menuOpen
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-6",
+            )}
+            style={{ transitionDelay: `${i * 0.07}s` }}
+          >
+            {link.label}
+          </Link>
+        ))}
+
+        {/* Mobile Pre-Order CTA */}
+        <Link
+          href="/preorder"
+          onClick={() => setMenuOpen(false)}
+          className={cn(
+            "bg-brand hover:bg-brand-light text-brand-fg font-body font-medium text-sm px-8 py-4 rounded-xl transition-all duration-300",
+            menuOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-6",
+          )}
+          style={{ transitionDelay: `${NAV_LINKS.length * 0.07}s` }}
+        >
+          Pre-Order Now
+        </Link>
       </div>
     </header>
   );

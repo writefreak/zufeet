@@ -2,19 +2,16 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background texture */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 70% 50%, rgba(200,134,10,0.12) 0%, transparent 70%), #0A0A0A",
-        }}
-      />
+    <div className=" md:relative bg-neutral-900 md:bg-white/80 md:pt-28 pt-0  md:h-screen flex flex-col md:flex md:items-center overflow-hidden">
+      {/* Decorative grid lines — desktop only */}
 
-      {/* Decorative grid lines */}
+      {/* Blob left */}
+      <div className="hidden md:block absolute -left-32 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-brand opacity-15 blur-[120px] pointer-events-none z-0" />
+
+      {/* Blob right */}
+      <div className="hidden md:block absolute -right-32 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-brand opacity-30 blur-[120px] pointer-events-none z-0" />
       <div
-        className="absolute inset-0 z-0 opacity-5"
+        className="absolute inset-0 z-0 opacity-5 hidden md:block"
         style={{
           backgroundImage:
             "linear-gradient(var(--color-border) 1px, transparent 1px), linear-gradient(90deg, var(--color-border) 1px, transparent 1px)",
@@ -22,77 +19,71 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Large background letter */}
-      <p
-        className="absolute right-0 top-1/2 -translate-y-1/2 font-display font-bold text-[28vw] leading-none select-none pointer-events-none z-0"
-        style={{ color: "rgba(200,134,10,0.04)" }}
-        aria-hidden="true"
-      >
-        Z
-      </p>
+      <div className="md:hidden w-full h-[400px] relative">
+        <img
+          src="/shoe.png"
+          alt="Zufeet shoe"
+          className="w-full object-cover h-full brightness-50 rounded-b-2xl"
+        />
+        {/* Black gradient overlay: opaque on left, transparent on right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent rounded-b-2xl" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-16">
-        <div className="max-w-2xl">
-          {/* Eyebrow */}
-          <div className="flex items-center gap-3 mb-6">
-            <span className="w-8 h-px bg-brand" />
-            <span className="font-body text-xs tracking-[0.3em] uppercase text-brand">
-              Nigerian Craftsmanship
-            </span>
-          </div>
-
-          {/* Headline */}
-          <h1 className="font-display text-[clamp(3rem,8vw,6rem)] font-semibold leading-[0.95] text-text mb-6">
-            Walk in
-            <br />
-            <em className="not-italic text-brand">Comfort.</em>
-            <br />
-            Stand in Style.
+        <div className="absolute inset-0 flex flex-col justify-center px-6 pt-10 gap-6">
+          <h1 className="font-display text-[38px] leading-[0.95] text-white">
+            Handcrafted <br className="md:hidden" /> Footwear for
+            <span>Confident</span> Steps
           </h1>
-
-          {/* Subheadline */}
-          <p className="font-body text-lg text-text-muted leading-relaxed max-w-lg mb-10">
-            Premium quality palms, designed and handcrafted in Nigeria. Built for long days,
-            warm evenings, and every moment in between.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex items-center gap-4 pt-3">
             <Link
               href="/preorder"
-              className="inline-flex items-center gap-3 bg-brand hover:bg-brand-light text-brand-fg font-body font-medium text-sm px-8 py-4 transition-colors duration-200"
+              className="inline-flex text-xs items-center gap-3 bg-[#6a3e19]/80 backdrop-blur-lg border border-gray-900 rounded-xl hover:bg-brand-light text-brand-fg font-body font-medium md:text-sm px-8 py-4 transition-colors duration-200"
             >
               Pre-Order Now
-              <span className="text-brand-fg/60">→</span>
             </Link>
             <Link
-              href="/products"
-              className="inline-flex items-center gap-3 border border-border hover:border-brand text-text-muted hover:text-brand font-body text-sm px-8 py-4 transition-colors duration-200"
+              href="#"
+              className="inline-flex text-xs md:text-sm rounded-xl items-center gap-3 border border-white text-white hover:text-brand font-body px-8 py-4 transition-colors duration-200"
             >
-              View Collection
+              Our Brand Story
             </Link>
-          </div>
-
-          {/* Stats */}
-          <div className="flex items-center gap-8 mt-16 pt-8 border-t border-border">
-            {[
-              { value: "100%", label: "Nigerian Made" },
-              { value: "6+", label: "Styles Available" },
-              { value: "Free", label: "Pre-Order — No Upfront Pay" },
-            ].map(({ value, label }) => (
-              <div key={label}>
-                <p className="font-display text-2xl font-semibold text-text">{value}</p>
-                <p className="font-body text-xs text-text-muted mt-0.5">{label}</p>
-              </div>
-            ))}
           </div>
         </div>
       </div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to bottom, transparent, var(--color-bg))" }}
-      />
-    </section>
+      {/* Desktop: original layout */}
+      <div className="pb-20 max-w-6xl mx-auto px-6 w-full hidden md:block">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-5">
+          <div>
+            <h1 className="font-display text-5xl md:text-[68px] leading-[0.95] text-text md:pb-11">
+              Handcrafted Footwear for <span>Confident</span> Steps
+            </h1>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                href="/preorder"
+                className="inline-flex items-center gap-3 bg-brand rounded-xl hover:bg-brand-light text-brand-fg font-body font-medium text-sm px-8 py-4 transition-colors duration-200"
+              >
+                Pre-Order Now
+              </Link>
+              <Link
+                href="#"
+                className="inline-flex rounded-xl items-center gap-3 border border-brand hover:border-brand text-brand hover:text-brand font-body text-sm px-8 py-4 transition-colors duration-200"
+              >
+                Our Brand Story
+              </Link>
+            </div>
+          </div>
+
+          <div className=" flex items-center justify-center">
+            <div className="w-full">
+              <img
+                src="/shoe.png"
+                alt="Zufeet palm"
+                className="object-contain rounded-2xl object-center drop-shadow-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
