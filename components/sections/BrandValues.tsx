@@ -4,7 +4,7 @@ export default function BrandValues() {
   return (
     <section className="bg-white/80">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 md:pb-14">
           {(BRAND_VALUES as BrandValue[]).map(
             ({ icon: Icon, title, description }) => (
               <div

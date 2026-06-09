@@ -1,14 +1,17 @@
 import { BadgeCheck, MapPin, Footprints, Tag } from "lucide-react";
 import { ElementType } from "react";
-export type ProductCategory = "Men" | "Women" | "Unisex";
+
+export type ProductGender = "Men" | "Women" | "Unisex";
+export type ProductType = "Palms" | "Shoes";
+export type ProductCategory = ProductGender; // kept for any external references
 
 export interface Product {
   id: string;
   name: string;
-
   description: string;
   price: number;
-  category: ProductCategory;
+  category: ProductGender;
+  type: ProductType;
   sizes: number[];
   image: string;
   featured: boolean;
@@ -29,8 +32,9 @@ export const PRODUCTS: Product[] = [
       "Handcrafted leather palm with a cushioned sole. Built for long days and warm evenings.",
     price: 18500,
     category: "Men",
+    type: "Palms",
     sizes: [40, 41, 42, 43, 44, 45],
-    image: "/images/product-1.jpg",
+    image: "/shoe.png",
     featured: true,
     tag: "Bestseller",
   },
@@ -41,8 +45,9 @@ export const PRODUCTS: Product[] = [
       "Handcrafted leather palm with a cushioned sole. Built for long days and warm evenings.",
     price: 18500,
     category: "Men",
+    type: "Palms",
     sizes: [40, 41, 42, 43, 44, 45],
-    image: "/images/product-1.jpg",
+    image: "/shoe.png",
     featured: true,
     tag: "Bestseller",
   },
@@ -53,8 +58,9 @@ export const PRODUCTS: Product[] = [
       "Handcrafted leather palm with a cushioned sole. Built for long days and warm evenings.",
     price: 18500,
     category: "Men",
+    type: "Palms",
     sizes: [40, 41, 42, 43, 44, 45],
-    image: "/images/product-1.jpg",
+    image: "/shoe.png",
     featured: true,
     tag: "Bestseller",
   },
@@ -65,8 +71,9 @@ export const PRODUCTS: Product[] = [
       "Handcrafted leather palm with a cushioned sole. Built for long days and warm evenings.",
     price: 18500,
     category: "Men",
+    type: "Shoes",
     sizes: [40, 41, 42, 43, 44, 45],
-    image: "/images/product-1.jpg",
+    image: "/shoe.png",
     featured: true,
     tag: "Bestseller",
   },
@@ -77,8 +84,9 @@ export const PRODUCTS: Product[] = [
       "Handcrafted leather palm with a cushioned sole. Built for long days and warm evenings.",
     price: 18500,
     category: "Men",
+    type: "Shoes",
     sizes: [40, 41, 42, 43, 44, 45],
-    image: "/images/product-1.jpg",
+    image: "/shoe.png",
     featured: true,
     tag: "Bestseller",
   },
@@ -89,8 +97,9 @@ export const PRODUCTS: Product[] = [
       "Wide-strap woven palm with arch support. Clean enough for casual, sturdy enough for everywhere.",
     price: 15000,
     category: "Unisex",
+    type: "Palms",
     sizes: [37, 38, 39, 40, 41, 42, 43],
-    image: "/images/product-2.jpg",
+    image: "/shoe.png",
     featured: true,
     tag: "New Arrival",
   },
@@ -101,8 +110,9 @@ export const PRODUCTS: Product[] = [
       "Slim-profile women's palm with a cushioned footbed and adjustable strap.",
     price: 14000,
     category: "Women",
+    type: "Palms",
     sizes: [36, 37, 38, 39, 40, 41],
-    image: "/images/product-3.jpg",
+    image: "/shoe.png",
     featured: true,
   },
   {
@@ -112,8 +122,9 @@ export const PRODUCTS: Product[] = [
       "The everyday workhorse. Thick-soled, wide-fit palm that holds up in any terrain.",
     price: 12500,
     category: "Men",
+    type: "Palms",
     sizes: [40, 41, 42, 43, 44, 45, 46],
-    image: "/images/product-4.jpg",
+    image: "/shoe.png",
     featured: false,
   },
   {
@@ -123,8 +134,9 @@ export const PRODUCTS: Product[] = [
       "Full-wrap strap design with a jute-textured sole. Made for the heat.",
     price: 13500,
     category: "Women",
+    type: "Shoes",
     sizes: [36, 37, 38, 39, 40],
-    image: "/images/product-5.jpg",
+    image: "/shoe.png",
     featured: false,
   },
   {
@@ -134,8 +146,9 @@ export const PRODUCTS: Product[] = [
       "Cross-strap unisex palm with premium foam insole and non-slip rubber outsole.",
     price: 16000,
     category: "Unisex",
+    type: "Palms",
     sizes: [37, 38, 39, 40, 41, 42, 43, 44],
-    image: "/images/product-6.jpg",
+    image: "/shoe.png",
     featured: false,
     tag: "Limited",
   },
@@ -167,4 +180,5 @@ export const BRAND_VALUES = [
   },
 ];
 
-export const CATEGORIES: ProductCategory[] = ["Men", "Women", "Unisex"];
+export const CATEGORIES: ProductGender[] = ["Men", "Women", "Unisex"];
+export const PRODUCT_TYPES: ProductType[] = ["Palms", "Shoes"];

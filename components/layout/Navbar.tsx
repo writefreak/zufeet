@@ -8,8 +8,9 @@ import { TextAlignJustify } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/reviews", label: "Reviews" },
+  { href: "#", label: "Featured" },
+  { href: "#ab", label: "About" },
+  { href: "#rev", label: "Reviews" },
   { href: "/products", label: "Shop" },
 ];
 
@@ -46,7 +47,12 @@ export default function Navbar() {
             alt=""
             className="h-7 w-full hidden md:block"
           />
-          <img src="/zufeetwhite.png" alt="" className="h-7 w-full md:hidden" />
+          {/* <img src="/zufeetwhite.png" alt="" className="h-7 w-full md:hidden" /> */}
+          <img
+            src={pathname === "/" ? "/zufeetwhite.png" : "/zufeetmain.png"}
+            alt=""
+            className="h-7 w-full md:hidden"
+          />
         </Link>
 
         {/* Desktop links */}
@@ -71,7 +77,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <Link
           href="/preorder"
-          className="hidden md:inline-flex rounded-xl items-center gap-2 bg-brand hover:bg-brand-light text-brand-fg text-sm font-medium px-5 py-2 transition-colors duration-200"
+          className="hidden font-display md:inline-flex rounded-xl items-center gap-2 bg-brand hover:bg-brand-light text-brand-fg text-sm px-5 py-2 transition-colors duration-200"
         >
           Pre-Order Now
         </Link>
@@ -83,7 +89,7 @@ export default function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
         >
-          <TextAlignJustify color="white" />
+          <TextAlignJustify color={pathname === "/" ? "white" : "#6A3E19"} />
         </button>
       </nav>
 
@@ -127,7 +133,7 @@ export default function Navbar() {
           href="/preorder"
           onClick={() => setMenuOpen(false)}
           className={cn(
-            "bg-brand hover:bg-brand-light text-brand-fg font-body font-medium text-sm px-8 py-4 rounded-xl transition-all duration-300",
+            "bg-brand hover:bg-brand-light text-brand-fg  font-display text-sm px-8 py-4 rounded-xl transition-all duration-300",
             menuOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-6",
           )}
           style={{ transitionDelay: `${NAV_LINKS.length * 0.07}s` }}

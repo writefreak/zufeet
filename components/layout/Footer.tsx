@@ -12,7 +12,7 @@ export default function Footer() {
           <img
             src="/zufeetbg.png"
             alt=""
-            className="h-8 w-28 md:h-14 md:w-44"
+            className="h-8 w-28 md:h-12 md:w-44"
           />
           {/* <img src="/zufeetwhite.png" alt="" className="h-6 w-40 md:hidden" /> */}
         </Link>

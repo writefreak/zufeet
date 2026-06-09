@@ -11,9 +11,9 @@ export default function HomePage() {
     <div>
       {/* <Hero /> */}
       <HeroSection />
+      <FeaturedProducts />
       <BrandStatement />
       <BrandValues />
-      <FeaturedProducts />
       <Reviews />
       <PreOrderBanner />
     </div>

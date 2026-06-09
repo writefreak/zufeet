@@ -2,7 +2,7 @@ export default function BrandStatement() {
   return (
     <div className="bg-white/80">
       <section className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-12 items-center md:pt-24">
           <div className="relative hidden lg:flex items-center justify-center">
             <div className="relative w-full pb-10">
               <img

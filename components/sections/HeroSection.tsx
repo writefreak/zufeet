@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <div className=" md:relative bg-neutral-900 md:bg-white/80 md:pt-28 pt-0  md:h-screen flex flex-col md:flex md:items-center overflow-hidden">
+    <div className=" md:relative md:bg-white/80 md:pt-28 pt-0  md:h-screen flex flex-col md:flex md:items-center overflow-hidden">
       {/* Decorative grid lines — desktop only */}
 
       {/* Blob left */}
@@ -30,8 +30,8 @@ export default function HeroSection() {
 
         <div className="absolute inset-0 flex flex-col justify-center px-6 pt-10 gap-6">
           <h1 className="font-display text-[38px] leading-[0.95] text-white">
-            Handcrafted <br className="md:hidden" /> Footwear for
-            <span>Confident</span> Steps
+            Handcrafted <br className="md:hidden" /> Footwear for Confident
+            Steps
           </h1>
           <div className="flex items-center gap-4 pt-3">
             <Link
@@ -42,7 +42,7 @@ export default function HeroSection() {
             </Link>
             <Link
               href="#"
-              className="inline-flex text-xs md:text-sm rounded-xl items-center gap-3 border border-white text-white hover:text-brand font-body px-8 py-4 transition-colors duration-200"
+              className="inline-flex text-xs md:text-sm rounded-xl items-center gap-3 border bg-white/10 backdrop-blur-md border-white text-white hover:text-brand font-body px-8 py-4 transition-colors duration-200"
             >
               Our Brand Story
             </Link>
