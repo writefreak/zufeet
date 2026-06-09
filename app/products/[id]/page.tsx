@@ -3,11 +3,12 @@ import { PRODUCTS } from "@/lib/data/products";
 import ProductDetail from "@/components/ui/product-detail";
 
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
-export default function ProductPage({ params }: Props) {
-  const product = PRODUCTS.find((p) => p.id === params.id);
+export default async function ProductPage({ params }: Props) {
+  const { id } = await params;
+  const product = PRODUCTS.find((p) => p.id === id);
   if (!product) notFound();
 
   return <ProductDetail product={product} />;
