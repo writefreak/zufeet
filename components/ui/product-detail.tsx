@@ -33,7 +33,7 @@ export default function ProductDetail({ product }: Props) {
 
   if (submitted)
     return (
-      <div className="md:h-screen bg-white flex items-center justify-center px-6">
+      <div className="md:h-screen h-[100vh] bg-white flex items-center justify-center px-6">
         <div className="flex flex-col items-center text-center gap-4 max-w-sm">
           <div className="w-16 h-16 rounded-full bg-brand/10 flex items-center justify-center">
             <ShoppingBag size={28} className="text-brand" />
@@ -49,7 +49,7 @@ export default function ProductDetail({ product }: Props) {
             been placed. We'll be in touch before your delivery date.
           </p>
           <Link
-            href="/products"
+            href="/"
             className="mt-2 font-body text-sm text-brand hover:underline transition-all duration-200"
           >
             Back to collection
