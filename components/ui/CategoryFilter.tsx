@@ -20,9 +20,9 @@ export default function CategoryFilter<T extends string>({
           key={opt}
           onClick={() => onChange(opt)}
           className={cn(
-            "font-body text-sm px-5 py-2 border border-brand rounded-2xl transition-colors duration-200",
+            "font-body text-sm px-5 py-2 bg-[#6A3E19]/10 rounded-2xl transition-colors duration-200",
             active === opt
-              ? "bg-brand border-brand text-brand-fg"
+              ? "bg-brand text-brand-fg"
               : "border-brand text-brand  hover:text-text",
           )}
         >

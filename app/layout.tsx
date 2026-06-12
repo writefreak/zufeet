@@ -10,6 +10,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import localFont from "next/font/local";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -63,9 +64,7 @@ export default function RootLayout({
       )}
     >
       <body>
-        <Navbar />
         <main>{children}</main>
-        <Footer />
       </body>
     </html>
   );

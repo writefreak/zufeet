@@ -33,17 +33,15 @@ body {
 
 /* ── Custom scrollbar ── */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 2px;
 }
+
 ::-webkit-scrollbar-track {
-  background: var(--color-brand);
+  background: white;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 2px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-subtle);
+  background-color: #6a3e19;
 }
 
 /* ── Focus ring ── */

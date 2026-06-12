@@ -50,7 +50,7 @@ export default function Footer() {
               {[
                 { href: "#", label: "@zufeetng", platform: "Instagram" },
                 { href: "#", label: "@zufeetng", platform: "TikTok" },
-                { href: "#", label: "Zufeet Nigeria", platform: "Facebook" },
+                { href: "#", label: "@zufeetng", platform: "Facebook" },
               ].map(({ href, label, platform }) => (
                 <li key={platform}>
                   <a
