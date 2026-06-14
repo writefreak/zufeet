@@ -21,7 +21,6 @@ export function RecentOrdersTable() {
           <h2 className="text-xs font-semibold md:text-sm text-[var(--color-border)]">
             Recent Orders
           </h2>
-
           <p className="text-xs text-[var(--color-text-muted)]">
             Last 5 orders placed
           </p>
@@ -36,7 +35,46 @@ export function RecentOrdersTable() {
         </Link>
       </div>
 
-      <div className="overflow-x-auto">
+      {/* ── MOBILE CARDS (hidden on md+) ── */}
+      <div className="flex flex-col gap-3 md:hidden">
+        {mockOrders.slice(0, 5).map((order) => (
+          <div
+            key={order.id}
+            className="flex items-center justify-between rounded-xl border border-[var(--color-border)]/8 px-4 py-3"
+          >
+            {/* Left: customer + product */}
+            <div className="flex flex-col gap-0.5 min-w-0">
+              <span className="text-sm font-semibold text-[var(--color-border)] truncate">
+                {order.customer}
+              </span>
+              <span className="text-xs text-[var(--color-text-muted)] truncate">
+                {order.product}
+              </span>
+              <span className="font-mono text-[10px] text-[var(--color-text-muted)]/60 mt-0.5">
+                {order.id}
+              </span>
+            </div>
+
+            {/* Right: amount + status */}
+            <div className="flex flex-col items-end gap-1.5 shrink-0 ml-3">
+              <span className="text-sm font-bold text-[var(--color-border)]">
+                {order.amount}
+              </span>
+              <span
+                className={cn(
+                  "inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide",
+                  statusStyles[order.status] ?? statusStyles.Pending,
+                )}
+              >
+                {order.status}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* ── DESKTOP TABLE (hidden below md) ── */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-[var(--color-border)]/10">
@@ -60,19 +98,15 @@ export function RecentOrdersTable() {
                 <td className="py-3 font-mono text-xs text-[var(--color-text-muted)]">
                   {order.id}
                 </td>
-
                 <td className="py-3 font-medium text-[var(--color-border)]">
                   {order.customer}
                 </td>
-
                 <td className="py-3 text-[var(--color-text-muted)]">
                   {order.product}
                 </td>
-
                 <td className="py-3 font-semibold text-[var(--color-border)]">
                   {order.amount}
                 </td>
-
                 <td className="py-3">
                   <span
                     className={cn(

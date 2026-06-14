@@ -3,7 +3,7 @@ import { ElementType } from "react";
 
 export type ProductGender = "Men" | "Women" | "Unisex";
 export type ProductType = "Palms" | "Shoes";
-export type ProductCategory = ProductGender; // kept for any external references
+export type ProductCategory = ProductGender;
 
 export interface Product {
   id: string;
@@ -34,7 +34,8 @@ export const PRODUCTS: Product[] = [
     category: "Men",
     type: "Palms",
     sizes: [40, 41, 42, 43, 44, 45],
-    image: "/shoe.png",
+    image:
+      "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=600&q=80",
     featured: true,
     tag: "Bestseller",
   },
@@ -47,7 +48,8 @@ export const PRODUCTS: Product[] = [
     category: "Men",
     type: "Palms",
     sizes: [40, 41, 42, 43, 44, 45],
-    image: "/shoe.png",
+    image:
+      "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=600&q=80",
     featured: true,
     tag: "Bestseller",
   },
@@ -60,7 +62,8 @@ export const PRODUCTS: Product[] = [
     category: "Men",
     type: "Palms",
     sizes: [40, 41, 42, 43, 44, 45],
-    image: "/shoe.png",
+    image:
+      "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=600&q=80",
     featured: true,
     tag: "Bestseller",
   },
@@ -73,7 +76,8 @@ export const PRODUCTS: Product[] = [
     category: "Men",
     type: "Shoes",
     sizes: [40, 41, 42, 43, 44, 45],
-    image: "/shoe.png",
+    image:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",
     featured: true,
     tag: "Bestseller",
   },
@@ -86,7 +90,8 @@ export const PRODUCTS: Product[] = [
     category: "Men",
     type: "Shoes",
     sizes: [40, 41, 42, 43, 44, 45],
-    image: "/shoe.png",
+    image:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",
     featured: true,
     tag: "Bestseller",
   },
@@ -99,7 +104,8 @@ export const PRODUCTS: Product[] = [
     category: "Unisex",
     type: "Palms",
     sizes: [37, 38, 39, 40, 41, 42, 43],
-    image: "/shoe.png",
+    image:
+      "https://images.unsplash.com/photo-1531310197839-ccf54634509e?w=600&q=80",
     featured: true,
     tag: "New Arrival",
   },
@@ -112,7 +118,8 @@ export const PRODUCTS: Product[] = [
     category: "Women",
     type: "Palms",
     sizes: [36, 37, 38, 39, 40, 41],
-    image: "/shoe.png",
+    image:
+      "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80",
     featured: true,
   },
   {
@@ -124,7 +131,8 @@ export const PRODUCTS: Product[] = [
     category: "Men",
     type: "Palms",
     sizes: [40, 41, 42, 43, 44, 45, 46],
-    image: "/shoe.png",
+    image:
+      "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600&q=80",
     featured: false,
   },
   {
@@ -136,7 +144,8 @@ export const PRODUCTS: Product[] = [
     category: "Women",
     type: "Shoes",
     sizes: [36, 37, 38, 39, 40],
-    image: "/shoe.png",
+    image:
+      "https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?w=600&q=80",
     featured: false,
   },
   {
@@ -148,7 +157,8 @@ export const PRODUCTS: Product[] = [
     category: "Unisex",
     type: "Palms",
     sizes: [37, 38, 39, 40, 41, 42, 43, 44],
-    image: "/shoe.png",
+    image:
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&q=80",
     featured: false,
     tag: "Limited",
   },

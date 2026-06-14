@@ -1,5 +1,14 @@
 // ── Mock data for Zufeet Admin ──────────────────────────────────────────
 
+export type Order = {
+  id: string;
+  customer: string;
+  product: string;
+  size: string;
+  color: string;
+  amount: string;
+  status: string;
+};
 export const mockOrders = [
   {
     id: "ZF-0001",

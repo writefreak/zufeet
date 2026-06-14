@@ -32,32 +32,40 @@ export function StatCard({
           <span className="text-xs font-medium uppercase tracking-widest text-[var(--color-text-muted)]">
             {title}
           </span>
-          <span className="md:text-2xl text-xl font-display font-bold text-[var(--color-border)]">
-            {value}
-          </span>
-        </div>
-        {Icon && (
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10">
-            <Icon className="h-5 w-5 text-brand" />
+          <div className="flex items-center gap-2">
+            <span className="md:text-2xl text-xl font-display font-bold text-[var(--color-border)]">
+              {value}
+            </span>
+            {Icon && (
+              <div className="flex  items-center justify-center rounded-xl bg-brand/10">
+                <Icon className="h-5 w-5 text-brand" />
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
 
       {trend && (
-        <div className="flex items-center gap-1.5">
-          {trend.direction === "up" ? (
-            <TrendingUp className="h-3.5 w-3.5 text-emerald-500" />
-          ) : (
-            <TrendingDown className="h-3.5 w-3.5 text-red-500" />
-          )}
-          <span
-            className={cn(
-              "text-xs font-semibold",
-              trend.direction === "up" ? "text-emerald-600" : "text-red-500",
+        <div className="flex flex-col gap-1">
+          <div className="flex flex-row items-center gap-1.5">
+            {trend.direction === "up" ? (
+              <TrendingUp className="h-3.5 w-3.5 text-emerald-500" />
+            ) : (
+              <TrendingDown className="h-3.5 w-3.5 text-red-500" />
             )}
-          >
-            {trend.value}
-          </span>
+            <div className="flex items-center gap-1">
+              <span
+                className={cn(
+                  "text-xs font-semibold",
+                  trend.direction === "up"
+                    ? "text-emerald-600"
+                    : "text-red-500",
+                )}
+              >
+                {trend.value}
+              </span>
+            </div>
+          </div>
           {trend.label && (
             <span className="text-xs text-[var(--color-text-muted)]">
               {trend.label}
